@@ -15,8 +15,18 @@ Tu consola de descuentos gamer oficial. Plataforma que trackea tu progreso en St
 play4win-repo/
 ├── README.md                    -> este archivo
 ├── DATA_ROOM_CHECKLIST.md       -> qué falta armar para vender/asociarse con empresas de gaming
+├── LICENSE                      -> MIT
 ├── src/
-│   └── App.jsx                  -> el prototipo funcional (login + dashboard)
+│   ├── App.jsx                  -> raíz: controla qué pantalla se muestra
+│   ├── theme/                   -> tokens de marca y estilos globales
+│   ├── data/                    -> datos mock (plataformas, ranking, recompensas)
+│   ├── utils/                   -> helpers (formateo de números, etc.)
+│   ├── components/
+│   │   ├── brand/                -> logo, isotipo, marca de Google
+│   │   └── ui/                   -> primitivas compartidas (labels, dividers)
+│   └── screens/
+│       ├── login/                -> pantalla de login/registro y sus piezas
+│       └── dashboard/            -> pantalla de dashboard y sus piezas
 ├── backend/
 │   ├── schema.sql                -> esquema de base de datos con seguridad por diseño
 │   └── SECURITY.md               -> arquitectura de backend, auth, encriptación, derecho de borrado
@@ -29,19 +39,15 @@ a esta misma carpeta — es el lugar único con la verdad del proyecto.
 
 ## Stack
 
-- React (componente único, sin dependencias de build más allá de las estándar del entorno)
+- React, componentes chicos con responsabilidad única (ver `src/`)
 - Tailwind (utilidades core)
 - [lucide-react](https://lucide.dev) para íconos
 - Backend recomendado: Supabase (Postgres + Auth + Row Level Security) — ver `backend/SECURITY.md`
 
-
-## Estructura
-
-```
-src/
-  App.jsx   -> pantallas de Login y Dashboard, con navegación entre ambas
-```
-
 ## Estado
 
-Prototipo funcional con datos mock. Los datos de plataformas, ranking y recompensas están hardcodeados en `App.jsx` para simular cómo se vería con las APIs reales de Steam / Epic / PSN conectadas.
+Prototipo funcional con datos mock. Los datos de plataformas, ranking y recompensas están en `src/data/mockData.js`, listos para reemplazarse por las APIs reales de Steam / Epic / PSN.
+
+## Licencia
+
+MIT — ver `LICENSE`.
